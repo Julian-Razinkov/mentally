@@ -1,0 +1,40 @@
+services:
+  api:
+    build:
+      context: ./packages/api
+      dockerfile: dockerfile
+    ports:
+      - 4000:4000
+    depends_on:
+      - postgres
+  frontend:
+    build: 
+      context: ./packages/frontend
+      dockerfile: dockerfile
+    ports: 
+      - 5173:5173
+    command: yarn dev --host "0.0.0.0"
+    develop: 
+      watch:
+        - action: sync
+          path: ./packages/frontend
+          target: /app
+          ignore: 
+            - node_modules
+        - action: rebuild
+          path: package.json
+  postgres:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

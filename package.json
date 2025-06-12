@@ -1,0 +1,21 @@
+{
+  "name": "mentality",
+  "version": "1.0.0",
+  "description": "An app for imporving and tracking your mental health",
+  "main": "index.js",
+  "author": "Julo Razinkov",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "tsc": "concurrently -n api,frontend -c cyan,magenta \"yarn workspace api tsc -w\" \"yarn workspace frontend tsc -b -w\""
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
