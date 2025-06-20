@@ -1,0 +1,25 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../generated/prisma"
+  binaryTargets = "linux-musl-arm64-openssl-3.0.x"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MoodNote {
+  id    String @id
+  title String
+  mood  Mood
+}
+
+enum Mood {
+  pleasant
+  joyful
+  neutral
+  angry
+  frustrated
+  depressed
+}

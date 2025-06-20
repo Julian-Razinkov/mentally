@@ -1,0 +1,51 @@
+#graphql
+
+type Query {
+	moodNoteOne(id: ID!): MoodNote!
+	moodNoteMany(input: Page!): MoodNotePage!
+}
+
+type Mutation {
+	moodNoteCreate(input: MoodNoteCreate!): ID!
+	moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): ID!
+	moodNoteDelete(id: ID!): ID!
+}
+
+# Mood Note start
+
+input Page {
+	skip: Int!
+	take: Int!
+}
+
+type MoodNotePage {
+	total: Int!
+	items: [MoodNote!]!
+}
+
+type MoodNote {
+	id: ID!
+	title: String!
+	mood: Mood!
+}
+
+enum Mood {
+	pleasant
+	joyful
+	neutral
+	angry
+	frustrated
+	depressed
+}
+
+input MoodNoteCreate {
+	title: String!
+	mood: Mood!
+}
+
+input MoodNoteUpdate {
+	title: String
+	mood: Mood
+}
+
+#Mood Note end

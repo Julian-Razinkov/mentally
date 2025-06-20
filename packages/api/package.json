@@ -5,14 +5,26 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "ts-node src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "gql-types": "graphql-codegen --config codegen.yml"
   },
   "license": "MIT",
   "dependencies": {
-    "@apollo/server": "^4.12.1",
+    "@apollo/server": "^4.12.2",
+    "@graphql-tools/graphql-file-loader": "^8.0.20",
+    "@graphql-tools/load": "^8.1.0",
+    "@prisma/client": "6.9.0",
     "@types/node": "^22.15.29",
+    "graphql": "^16.11.0",
+    "prisma": "^6.9.0",
     "ts-node": "^10.9.2",
     "tsc": "^2.0.4",
     "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.7",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-resolvers": "^4.5.1",
+    "nodemon": "^3.1.10"
   }
 }
