@@ -1,5 +1,8 @@
 services:
   api:
+    volumes:
+      #For migrations
+      - ./packages/api/prisma:/app/prisma
     build:
       context: ./packages/api
       dockerfile: dockerfile

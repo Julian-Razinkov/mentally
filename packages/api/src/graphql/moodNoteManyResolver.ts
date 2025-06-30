@@ -1,5 +1,5 @@
 import { prisma } from '../prisma';
-import { MoodNote, MoodNotePage, QueryMoodNoteManyArgs } from '../schema.types';
+import { MoodNotePage, QueryMoodNoteManyArgs } from '../schema.types';
 import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteManyResolver(

@@ -1,22 +1,18 @@
-import { InvocationContext } from '../context';
 import { prisma } from '../prisma';
-import {
-	MoodNote,
-	QueryMoodNoteOneArgs,
-	QueryResolvers,
-} from '../schema.types';
+import { MoodNote, QueryMoodNoteOneArgs } from '../schema.types';
 import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteOneResolver(
 	_,
-	{ id }: QueryMoodNoteOneArgs,
-	{ user }: InvocationContext
+	{ id }: QueryMoodNoteOneArgs
 ): Promise<MoodNote> {
 	const moodNote = await prisma.moodNote.findUniqueOrThrow({
 		where: {
 			id,
 		},
 	});
+
+	console.log('Where is the loging man???');
 
 	return toMoodNoteSchema(moodNote);
 }

@@ -6,9 +6,9 @@ type Query {
 }
 
 type Mutation {
-	moodNoteCreate(input: MoodNoteCreate!): ID!
-	moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): ID!
-	moodNoteDelete(id: ID!): ID!
+	moodNoteCreate(input: MoodNoteCreate!): MoodNote!
+	moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): MoodNote!
+	moodNoteDelete(id: ID!): MoodNote!
 }
 
 # Mood Note start
