@@ -7,12 +7,14 @@ export async function moodNoteCreateResolver(
 	_,
 	{ input }: MutationMoodNoteCreateArgs
 ): Promise<MoodNote> {
-	const { title, mood } = input;
+	const { title, tags, intencity, emotion } = input;
 	const note = await prisma.moodNote.create({
 		data: {
 			id: uuid7(),
-			mood,
+			emotion,
 			title,
+			intencity,
+			// TODO: Map tags
 		},
 	});
 

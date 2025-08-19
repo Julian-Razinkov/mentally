@@ -6,13 +6,13 @@ export async function moodNoteUpdateResolver(
 	_,
 	{ id, input }: MutationMoodNoteUpdateArgs
 ): Promise<MoodNote> {
-	const { mood, title } = input;
+const { emotion, title } = input;
 	const note = await prisma.moodNote.update({
 		where: {
 			id,
 		},
 		data: {
-			mood: mood ?? undefined,
+			emotion: emotion ?? undefined,
 			title: title ?? undefined,
 		},
 	});

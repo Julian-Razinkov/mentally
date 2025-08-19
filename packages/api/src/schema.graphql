@@ -25,27 +25,46 @@ type MoodNotePage {
 
 type MoodNote {
 	id: ID!
-	title: String!
-	mood: Mood!
+	title: String
+	emotion: Emotion!
+	intencity: Int!
+  tags: [MoodNoteTag!]!
+  description: String
 }
 
-enum Mood {
-	pleasant
-	joyful
-	neutral
+type MoodNoteTag {
+  name: String!
+  category: String!
+}
+
+enum Emotion {
+	happy
+	sad
 	angry
-	frustrated
-	depressed
+	anxious
+	calm
+	tired
+	lonely
+	stressed
+	grateful
 }
 
 input MoodNoteCreate {
 	title: String!
-	mood: Mood!
+	emotion: Emotion!
+  intencity: Int!
+  tags: [MoodNoteTagCreate!]!
+}
+
+input MoodNoteTagCreate {
+  name: String!
+  category: String!
 }
 
 input MoodNoteUpdate {
 	title: String
-	mood: Mood
+	emotion: Emotion
+	intencity: Int!
 }
 
 #Mood Note end

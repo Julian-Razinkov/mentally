@@ -24,7 +24,7 @@ services:
     build: 
       context: ./packages/frontend
       dockerfile: dockerfile
-    ports: 
+    ports:
       - 5173:5173
       #Put a host address into a .env variable
     command: yarn dev --host "0.0.0.0"
