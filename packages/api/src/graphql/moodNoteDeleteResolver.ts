@@ -3,12 +3,19 @@ import { MoodNote, MutationMoodNoteDeleteArgs } from '../schema.types';
 import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteDeleteResolver(
-	_,
-	{ id }: MutationMoodNoteDeleteArgs
+  _: any,
+  { id }: MutationMoodNoteDeleteArgs
 ): Promise<MoodNote> {
-	const note = await prisma.moodNote.delete({
-		where: { id },
-	});
+  const note = await prisma.moodNote.delete({
+    where: { id },
+    include: {
+      tags: {
+        select: {
+          moodTag: true,
+        }
+      }
+    }
+  });
 
-	return toMoodNoteSchema(note);
+  return toMoodNoteSchema(note);
 }

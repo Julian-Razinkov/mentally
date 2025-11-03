@@ -10,13 +10,23 @@ datasource db {
 }
 
 model MoodNote {
-  id          String        @id
+  id          String            @id
   title       String?
   emotion     Emotion
-  tags        MoodNoteTag[]
+  tags        TagsOnMoodNotes[]
   intencity   Int
   description String?
-  createdAt   DateTime      @default(now())
+  createdAt   DateTime          @default(now())
+
+  activity   Activity? @relation(fields: [activityId], references: [id])
+  activityId String?
+}
+
+model Activity {
+  id          String     @id
+  name        String
+  description String
+  moodNotes   MoodNote[]
 }
 
 enum Emotion {
@@ -31,15 +41,26 @@ enum Emotion {
   grateful
 }
 
-//TODO: Find out how I can make tags more structured and give them more info
-model MoodNoteTagCategory {
-  name String        @unique
-  tags MoodNoteTag[]
+model MoodTag {
+  name     String       @unique
+  category MoodCategory
+
+  TagsOnMoodNotes TagsOnMoodNotes[]
 }
 
-model MoodNoteTag {
-  name                    String              @id
-  category     MoodNoteTagCategory @relation(fields: [categoryName], references: [name])
-  categoryName String
-  MoodNotes               MoodNote[]
+enum MoodCategory {
+  school
+  work
+  money
+  health
+  relationships
+}
+
+model TagsOnMoodNotes {
+  moodNote    MoodNote @relation(fields: [moodNoteId], references: [id])
+  moodNoteId  String
+  moodTag     MoodTag  @relation(fields: [moodTagName], references: [name])
+  moodTagName String
+
+  @@id([moodNoteId, moodTagName])
 }

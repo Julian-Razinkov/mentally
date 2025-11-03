@@ -28,13 +28,20 @@ type MoodNote {
 	title: String
 	emotion: Emotion!
 	intencity: Int!
-  tags: [MoodNoteTag!]!
-  description: String
+	tags: [MoodNoteTag!]!
+	description: String
+	activity: Activity
+}
+
+type Activity {
+	id: ID!
+	name: String!
+	description: String
 }
 
 type MoodNoteTag {
-  name: String!
-  category: String!
+	name: String!
+	category: MoodCategory!
 }
 
 enum Emotion {
@@ -52,13 +59,23 @@ enum Emotion {
 input MoodNoteCreate {
 	title: String!
 	emotion: Emotion!
-  intencity: Int!
-  tags: [MoodNoteTagCreate!]!
+	description: String
+	intencity: Int!
+	tags: [MoodNoteTagCreate!]!
+	activityId: ID!
 }
 
 input MoodNoteTagCreate {
-  name: String!
-  category: String!
+	name: String!
+	category: MoodCategory!
+}
+
+enum MoodCategory {
+	school
+	work
+	money
+	health
+	relationships
 }
 
 input MoodNoteUpdate {
