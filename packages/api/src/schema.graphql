@@ -3,12 +3,15 @@
 type Query {
 	moodNoteOne(id: ID!): MoodNote!
 	moodNoteMany(input: Page!): MoodNotePage!
+	testOne(id: ID!): Test!
 }
 
 type Mutation {
 	moodNoteCreate(input: MoodNoteCreate!): MoodNote!
 	moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): MoodNote!
 	moodNoteDelete(id: ID!): MoodNote!
+
+	testCreate(input: TestCreate!): Test!
 }
 
 # Mood Note start
@@ -85,3 +88,34 @@ input MoodNoteUpdate {
 }
 
 #Mood Note end
+
+type Test {
+	id: ID!
+	type: TestType!
+	score: Int!
+	createdAt: String!
+	answers: [TestAnswer!]!
+}
+
+type TestAnswer {
+	id: ID!
+	questionTitle: String!
+	questionNumber: Int!
+	score: Int!
+}
+
+input TestCreate {
+	userId: ID!
+	type: TestType!
+	answers: [TestAnswerInput!]!
+}
+
+input TestAnswerInput {
+	questionNumber: Int!
+	score: Int!
+}
+
+enum TestType {
+	PHQ9
+	GAD7
+}
