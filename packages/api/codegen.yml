@@ -2,8 +2,8 @@ schema: ./src/schema.graphql
 generates:
   ./src/schema.types.ts:
     plugins:
-      - 'typescript'
-      - 'typescript-resolvers'
+      - "typescript"
+      - "typescript-resolvers"
     config:
       useIndexSignature: true
-      contextType: './context#InvocationContext'
+      contextType: "./context#InvocationContext"

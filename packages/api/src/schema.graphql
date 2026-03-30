@@ -1,121 +1,121 @@
 #graphql
 
 type Query {
-	moodNoteOne(id: ID!): MoodNote!
-	moodNoteMany(input: Page!): MoodNotePage!
-	testOne(id: ID!): Test!
+  moodNoteOne(id: ID!): MoodNote!
+  moodNoteMany(input: Page!): MoodNotePage!
+  testOne(id: ID!): Test!
 }
 
 type Mutation {
-	moodNoteCreate(input: MoodNoteCreate!): MoodNote!
-	moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): MoodNote!
-	moodNoteDelete(id: ID!): MoodNote!
+  moodNoteCreate(input: MoodNoteCreate!): MoodNote!
+  moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): MoodNote!
+  moodNoteDelete(id: ID!): MoodNote!
 
-	testCreate(input: TestCreate!): Test!
+  testCreate(input: TestCreate!): Test!
 }
 
 # Mood Note start
 
 input Page {
-	skip: Int!
-	take: Int!
+  skip: Int!
+  take: Int!
 }
 
 type MoodNotePage {
-	total: Int!
-	items: [MoodNote!]!
+  total: Int!
+  items: [MoodNote!]!
 }
 
 type MoodNote {
-	id: ID!
-	title: String
-	emotion: Emotion!
-	intencity: Int!
-	tags: [MoodNoteTag!]!
-	description: String
-	activity: Activity
+  id: ID!
+  title: String
+  emotion: Emotion!
+  intencity: Int!
+  tags: [MoodNoteTag!]!
+  description: String
+  activity: Activity
 }
 
 type Activity {
-	id: ID!
-	name: String!
-	description: String
+  id: ID!
+  name: String!
+  description: String
 }
 
 type MoodNoteTag {
-	name: String!
-	category: MoodCategory!
+  name: String!
+  category: MoodCategory!
 }
 
 enum Emotion {
-	happy
-	sad
-	angry
-	anxious
-	calm
-	tired
-	lonely
-	stressed
-	grateful
+  happy
+  sad
+  angry
+  anxious
+  calm
+  tired
+  lonely
+  stressed
+  grateful
 }
 
 input MoodNoteCreate {
-	title: String!
-	emotion: Emotion!
-	description: String
-	intencity: Int!
-	tags: [MoodNoteTagCreate!]!
-	activityId: ID!
+  title: String!
+  emotion: Emotion!
+  description: String
+  intencity: Int!
+  tags: [MoodNoteTagCreate!]!
+  activityId: ID!
 }
 
 input MoodNoteTagCreate {
-	name: String!
-	category: MoodCategory!
+  name: String!
+  category: MoodCategory!
 }
 
 enum MoodCategory {
-	school
-	work
-	money
-	health
-	relationships
+  school
+  work
+  money
+  health
+  relationships
 }
 
 input MoodNoteUpdate {
-	title: String
-	emotion: Emotion
-	intencity: Int!
+  title: String
+  emotion: Emotion
+  intencity: Int!
 }
 
 #Mood Note end
 
 type Test {
-	id: ID!
-	type: TestType!
-	score: Int!
-	createdAt: String!
-	answers: [TestAnswer!]!
+  id: ID!
+  type: TestType!
+  score: Int!
+  createdAt: String!
+  answers: [TestAnswer!]!
 }
 
 type TestAnswer {
-	id: ID!
-	questionTitle: String!
-	questionNumber: Int!
-	score: Int!
+  id: ID!
+  questionTitle: String!
+  questionNumber: Int!
+  score: Int!
 }
 
 input TestCreate {
-	userId: ID!
-	type: TestType!
-	answers: [TestAnswerInput!]!
+  userId: ID!
+  type: TestType!
+  answers: [TestAnswerInput!]!
 }
 
 input TestAnswerInput {
-	questionNumber: Int!
-	score: Int!
+  questionNumber: Int!
+  score: Int!
 }
 
 enum TestType {
-	PHQ9
-	GAD7
+  PHQ9
+  GAD7
 }

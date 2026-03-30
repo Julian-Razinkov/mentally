@@ -8,32 +8,32 @@ services:
       dockerfile: dockerfile
     ports:
       - 4000:4000
-    command: yarn dev 
-    develop: 
+    command: yarn dev
+    develop:
       watch:
         - action: sync
           path: ./packages/api
           target: /app
-          ignore: 
+          ignore:
             - node_modules
         - action: rebuild
           path: package.json
     depends_on:
       - postgres
   frontend:
-    build: 
+    build:
       context: ./packages/frontend
       dockerfile: dockerfile
     ports:
       - 5173:5173
       #Put a host address into a .env variable
     command: yarn dev --host "0.0.0.0"
-    develop: 
+    develop:
       watch:
         - action: sync
           path: ./packages/frontend
           target: /app
-          ignore: 
+          ignore:
             - node_modules
         - action: rebuild
           path: package.json
@@ -41,7 +41,7 @@ services:
     image: postgres
     restart: always
     shm_size: 128mb
-    ports: 
+    ports:
       - 5432:5432
     environment:
       POSTGRES_DB: ${POSTGRES_DB}

@@ -1,8 +1,8 @@
-import { Emotion, MoodCategory, MoodNote } from '../../schema.types';
-import { MoodNote as MoodNoteModel, MoodTag } from '../../../generated/prisma';
+import { Emotion, MoodCategory, MoodNote } from "../../schema.types";
+import { MoodNote as MoodNoteModel, MoodTag } from "../../../generated/prisma";
 
 export async function toMoodNoteSchema(
-  model: MoodNoteModel & { tags: Array<{ moodTag: MoodTag }> }
+  model: MoodNoteModel & { tags: Array<{ moodTag: MoodTag }> },
 ): Promise<MoodNote> {
   return {
     id: model.id,
