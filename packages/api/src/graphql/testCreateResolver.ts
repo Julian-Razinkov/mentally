@@ -1,12 +1,12 @@
-import { v7 as uuid } from "uuid";
-import { prisma } from "../prisma";
-import { MutationTestCreateArgs, Test, TestType } from "../schema.types";
-import { calculateTestScore } from "./helpers";
-import { toTestSchema } from "./mappers/test";
+import { v7 as uuid } from 'uuid';
+import { prisma } from '../prisma';
+import { MutationTestCreateArgs, Test, TestType } from '../schema.types';
+import { calculateTestScore } from './helpers';
+import { toTestSchema } from './mappers/test';
 
 export async function testCreateResolver(
   _: any,
-  { input }: MutationTestCreateArgs,
+  { input }: MutationTestCreateArgs
 ): Promise<Test> {
   const { type, userId, answers } = input;
   const id = uuid();

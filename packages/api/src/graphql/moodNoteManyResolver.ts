@@ -1,10 +1,10 @@
-import { prisma } from "../prisma";
-import { MoodNotePage, QueryMoodNoteManyArgs } from "../schema.types";
-import { toMoodNoteSchema } from "./mappers/moodNote";
+import { prisma } from '../prisma';
+import { MoodNotePage, QueryMoodNoteManyArgs } from '../schema.types';
+import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteManyResolver(
   _: any,
-  { input }: QueryMoodNoteManyArgs,
+  { input }: QueryMoodNoteManyArgs
 ): Promise<MoodNotePage> {
   const { skip, take } = input;
 

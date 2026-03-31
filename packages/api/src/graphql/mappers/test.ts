@@ -1,9 +1,9 @@
-import { TestAnswer, Test as TestModel } from "../../../generated/prisma";
-import { Test, TestType } from "../../schema.types";
-import { mapTestQuestionTitle } from "../helpers";
+import { TestAnswer, Test as TestModel } from '../../../generated/prisma';
+import { Test, TestType } from '../../schema.types';
+import { mapTestQuestionTitle } from '../helpers';
 
 export function toTestSchema(
-  test: TestModel & { answers: TestAnswer[] },
+  test: TestModel & { answers: TestAnswer[] }
 ): Test {
   const { id, type, score, createdAt, answers } = test;
 

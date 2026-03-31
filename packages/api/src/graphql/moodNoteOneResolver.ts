@@ -1,10 +1,10 @@
-import { prisma } from "../prisma";
-import { MoodNote, QueryMoodNoteOneArgs } from "../schema.types";
-import { toMoodNoteSchema } from "./mappers/moodNote";
+import { prisma } from '../prisma';
+import { MoodNote, QueryMoodNoteOneArgs } from '../schema.types';
+import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteOneResolver(
   _: any,
-  { id }: QueryMoodNoteOneArgs,
+  { id }: QueryMoodNoteOneArgs
 ): Promise<MoodNote> {
   const moodNote = await prisma.moodNote.findUniqueOrThrow({
     where: {
@@ -19,7 +19,7 @@ export async function moodNoteOneResolver(
     },
   });
 
-  console.log("Where is the loging man???");
+  console.log('Where is the loging man???');
 
   return toMoodNoteSchema(moodNote);
 }

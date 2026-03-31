@@ -1,11 +1,11 @@
-import { prisma } from "../prisma";
-import { MoodNote, MutationMoodNoteCreateArgs } from "../schema.types";
-import { v7 as uuid7 } from "uuid";
-import { toMoodNoteSchema } from "./mappers/moodNote";
+import { prisma } from '../prisma';
+import { MoodNote, MutationMoodNoteCreateArgs } from '../schema.types';
+import { v7 as uuid7 } from 'uuid';
+import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteCreateResolver(
   _,
-  { input }: MutationMoodNoteCreateArgs,
+  { input }: MutationMoodNoteCreateArgs
 ): Promise<MoodNote> {
   const { title, tags, intencity, emotion, description, activityId } = input;
 

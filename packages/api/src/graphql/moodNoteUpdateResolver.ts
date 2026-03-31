@@ -1,10 +1,10 @@
-import { prisma } from "../prisma";
-import { MoodNote, MutationMoodNoteUpdateArgs } from "../schema.types";
-import { toMoodNoteSchema } from "./mappers/moodNote";
+import { prisma } from '../prisma';
+import { MoodNote, MutationMoodNoteUpdateArgs } from '../schema.types';
+import { toMoodNoteSchema } from './mappers/moodNote';
 
 export async function moodNoteUpdateResolver(
   _: any,
-  { id, input }: MutationMoodNoteUpdateArgs,
+  { id, input }: MutationMoodNoteUpdateArgs
 ): Promise<MoodNote> {
   const { emotion, title } = input;
   const note = await prisma.moodNote.update({
