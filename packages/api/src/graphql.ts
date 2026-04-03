@@ -5,6 +5,7 @@ import { moodNoteOneResolver } from './graphql/moodNoteOneResolver';
 import { moodNoteUpdateResolver } from './graphql/moodNoteUpdateResolver';
 import { testCreateResolver } from './graphql/testCreateResolver';
 import { testOneResolver } from './graphql/testOneResolver';
+import { useerCreateResolver } from './graphql/userCreateResolver';
 import { Resolvers } from './schema.types';
 
 export const resolvers: Resolvers = {
@@ -18,5 +19,6 @@ export const resolvers: Resolvers = {
     moodNoteUpdate: moodNoteUpdateResolver,
     moodNoteDelete: moodNoteDeleteResolver,
     testCreate: testCreateResolver,
+    userCreate: useerCreateResolver,
   },
 };

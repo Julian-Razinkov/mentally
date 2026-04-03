@@ -11,10 +11,12 @@ type Mutation {
   moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): MoodNote!
   moodNoteDelete(id: ID!): MoodNote!
 
+  userCreate(input: UserCreate!): User!
+
   testCreate(input: TestCreate!): Test!
 }
 
-# Mood Note start
+# Mood Note section
 
 input Page {
   skip: Int!
@@ -87,7 +89,7 @@ input MoodNoteUpdate {
   intencity: Int!
 }
 
-#Mood Note end
+# Test Section
 
 type Test {
   id: ID!
@@ -118,4 +120,27 @@ input TestAnswerInput {
 enum TestType {
   PHQ9
   GAD7
+}
+
+# User Section
+
+type User {
+  name: String!
+  email: String!
+  gender: Gender!
+  birthDate: String
+}
+
+enum Gender {
+  male
+  female
+  unknown
+}
+
+input UserCreate {
+  name: String!
+  email: String!
+  password: String!
+  gender: Gender!
+  birthDate: String
 }
