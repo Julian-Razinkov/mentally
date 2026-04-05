@@ -1,14 +1,14 @@
+#TODO: Fix the compose, Im too stupid for it right now
 services:
   api:
-    volumes:
-      #For migrations
-      - ./packages/api/prisma:/app/prisma
     build:
-      context: ./packages/api
-      dockerfile: dockerfile
+      context: .
+      dockerfile: ./packages/api/dockerfile
     ports:
       - 4000:4000
-    command: yarn dev
+    volumes:
+      - .:/app
+    command: yarn workspace @mentally/api dev
     develop:
       watch:
         - action: sync
@@ -22,12 +22,13 @@ services:
       - postgres
   frontend:
     build:
-      context: ./packages/frontend
-      dockerfile: dockerfile
+      context: .
+      dockerfile: ./packages/frontend/dockerfile
     ports:
       - 5173:5173
-      #Put a host address into a .env variable
-    command: yarn dev --host "0.0.0.0"
+    volumes:
+      - .:/app
+    command: yarn workspace @mentally/frontend dev --host 0.0.0.0
     develop:
       watch:
         - action: sync

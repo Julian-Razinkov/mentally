@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@mentally/api",
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
@@ -22,7 +22,8 @@
     "ts-node": "^10.9.2",
     "tsc": "^2.0.4",
     "typescript": "^5.8.3",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "@mentally/common": "1.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.7",

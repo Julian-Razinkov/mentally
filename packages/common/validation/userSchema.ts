@@ -1,6 +1,5 @@
 import * as v from 'valibot';
-// TODO: Fix the imports
-import { Gender } from '../../api/src/schema.types';
+import { Gender } from '@mentally/api/src/schema.types';
 
 export const userSchema = v.object({
   name: v.pipe(
@@ -20,5 +19,5 @@ export const userSchema = v.object({
     v.minLength(8, 'Password must be a least 8 characters long'),
     v.maxLength(64, 'Password can not be longer than 64 characters')
   ),
-  birthDate: v.pipe(v.date('Invalid birth date')),
+  birthDate: v.pipe(v.string()),
 });

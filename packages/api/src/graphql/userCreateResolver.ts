@@ -1,5 +1,5 @@
 import { MutationUserCreateArgs, User } from '../schema.types';
-import { userSchema as validationSchema } from 'common/validation/userSchema';
+import { userSchema as validationSchema } from '@mentally/common/validation/userSchema';
 import { parse } from 'valibot';
 import { prisma } from '../prisma';
 import { hashPassword } from '../helpers/hash';
@@ -26,7 +26,7 @@ export async function useerCreateResolver(
         name,
         email,
         gender: gender as Gender,
-        birthDate: birthDate.toISOString(),
+        birthDate,
         hash,
       },
     });

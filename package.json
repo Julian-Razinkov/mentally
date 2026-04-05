@@ -1,5 +1,5 @@
 {
-  "name": "mentality",
+  "name": "mentally",
   "version": "1.0.0",
   "description": "An app for imporving and tracking your mental health",
   "main": "index.js",
@@ -7,11 +7,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "ts-watch": "concurrently -n api,frontend -c cyan,magenta \"yarn workspace api tsc -w\" \"yarn workspace frontend tsc -b -w\"",
+    "ts-watch": "concurrently -n api,frontend -c cyan,magenta \"yarn workspace @mentally/api tsc -w\" \"yarn workspace @mentally/frontend tsc -b -w\"",
     "prepare": "husky"
   },
   "workspaces": [
-    "packages/*"
+    "packages/api",
+    "packages/frontend",
+    "packages/common"
   ],
   "dependencies": {
     "ts-node": "^10.9.2",
