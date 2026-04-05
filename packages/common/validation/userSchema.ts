@@ -21,3 +21,5 @@ export const userSchema = v.object({
   ),
   birthDate: v.pipe(v.string()),
 });
+
+export const updateUserSchema = v.partial(userSchema);

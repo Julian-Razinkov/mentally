@@ -3,7 +3,10 @@
 type Query {
   moodNoteOne(id: ID!): MoodNote!
   moodNoteMany(input: Page!): MoodNotePage!
+
   testOne(id: ID!): Test!
+
+  userOne(id: ID!): User!
 }
 
 type Mutation {
@@ -12,6 +15,8 @@ type Mutation {
   moodNoteDelete(id: ID!): MoodNote!
 
   userCreate(input: UserCreate!): User!
+  userUpdate(input: UserUpdate!): User!
+  userDelete(id: ID!): User!
 
   testCreate(input: TestCreate!): Test!
 }
@@ -125,6 +130,7 @@ enum TestType {
 # User Section
 
 type User {
+  id: ID!
   name: String!
   email: String!
   gender: Gender!
@@ -142,5 +148,15 @@ input UserCreate {
   email: String!
   password: String!
   gender: Gender!
+  birthDate: String
+}
+
+input UserUpdate {
+  id: ID!
+  name: String
+  # Add email confirmation in the future before changing it
+  email: String
+  password: String
+  gender: Gender
   birthDate: String
 }

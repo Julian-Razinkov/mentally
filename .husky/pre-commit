@@ -1,2 +1,3 @@
 yarn tsc --noEmit
+yarn prettier . --write
 yarn prettier . --check

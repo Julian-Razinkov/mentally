@@ -5,7 +5,10 @@ import { moodNoteOneResolver } from './graphql/moodNoteOneResolver';
 import { moodNoteUpdateResolver } from './graphql/moodNoteUpdateResolver';
 import { testCreateResolver } from './graphql/testCreateResolver';
 import { testOneResolver } from './graphql/testOneResolver';
-import { useerCreateResolver } from './graphql/userCreateResolver';
+import { userCreateResolver } from './graphql/userCreateResolver';
+import { userDeleteResolver } from './graphql/userDeleteResolver';
+import { userOneResolver } from './graphql/userOneResolver';
+import { userUpdateResolver } from './graphql/userUpdateResolver';
 import { Resolvers } from './schema.types';
 
 export const resolvers: Resolvers = {
@@ -13,12 +16,15 @@ export const resolvers: Resolvers = {
     moodNoteOne: moodNoteOneResolver,
     moodNoteMany: moodNoteManyResolver,
     testOne: testOneResolver,
+    userOne: userOneResolver,
   },
   Mutation: {
     moodNoteCreate: moodNoteCreateResolver,
     moodNoteUpdate: moodNoteUpdateResolver,
     moodNoteDelete: moodNoteDeleteResolver,
     testCreate: testCreateResolver,
-    userCreate: useerCreateResolver,
+    userCreate: userCreateResolver,
+    userUpdate: userUpdateResolver,
+    userDelete: userDeleteResolver,
   },
 };

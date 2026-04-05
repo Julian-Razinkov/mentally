@@ -7,7 +7,7 @@ import { Gender } from '../../generated/prisma';
 import { v4 as uuid } from 'uuid';
 import { toUserSchema } from './mappers/user';
 
-export async function useerCreateResolver(
+export async function userCreateResolver(
   _: any,
   { input }: MutationUserCreateArgs
 ): Promise<User> {
