@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@mentally/api",
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
@@ -14,13 +14,16 @@
     "@graphql-tools/graphql-file-loader": "^8.0.20",
     "@graphql-tools/load": "^8.1.0",
     "@prisma/client": "6.9.0",
+    "@types/bcrypt": "^6.0.0",
     "@types/node": "^22.15.29",
+    "bcrypt": "^6.0.0",
     "graphql": "^16.11.0",
     "prisma": "^6.9.0",
     "ts-node": "^10.9.2",
     "tsc": "^2.0.4",
     "typescript": "^5.8.3",
-    "uuid": "^11.1.0"
+    "uuid": "^13.0.0",
+    "@mentally/common": "1.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.7",
