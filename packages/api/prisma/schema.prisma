@@ -16,6 +16,9 @@ model User {
   hash      String
   gender    Gender
   birthDate DateTime?
+
+  moodNotes MoodNote[]
+  tests     Test[]
 }
 
 enum Gender {
@@ -32,6 +35,9 @@ model MoodNote {
   intencity   Int
   description String?
   createdAt   DateTime          @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 
   activity   Activity? @relation(fields: [activityId], references: [id])
   activityId String?
@@ -59,11 +65,13 @@ enum Emotion {
 // Standard GAD-7 test
 model Test {
   id        String       @id
-  // userId    String // link to your User model
   type      TestType
   createdAt DateTime     @default(now())
   score     Int
   answers   TestAnswer[]
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 }
 
 model TestAnswer {

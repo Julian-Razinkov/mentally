@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "MoodNote" ALTER COLUMN "userId" DROP DEFAULT;
+
+-- AlterTable
+ALTER TABLE "Test" ALTER COLUMN "userId" DROP DEFAULT;

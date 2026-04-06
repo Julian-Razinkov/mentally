@@ -9,6 +9,9 @@ export async function moodNoteCreateResolver(
 ): Promise<MoodNote> {
   const { title, tags, intencity, emotion, description, activityId } = input;
 
+  // Will be pulled from the auth later
+  const placeholder = 'f29ca143-fdef-4d01-a31e-7b6b4d1c8b32';
+
   const noteId = uuid7();
   const note = await prisma.moodNote.create({
     data: {
@@ -18,6 +21,7 @@ export async function moodNoteCreateResolver(
       intencity,
       description,
       activityId,
+      userId: placeholder,
       tags: {
         createMany: {
           skipDuplicates: true,
