@@ -72,7 +72,7 @@ input MoodNoteCreate {
   description: String
   intencity: Int!
   tags: [MoodNoteTagCreate!]!
-  activityId: ID!
+  activityId: ID
 }
 
 input MoodNoteTagCreate {

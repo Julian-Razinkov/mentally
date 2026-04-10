@@ -1,0 +1,11 @@
+-- AlterTable
+ALTER TABLE "MoodNote" ADD COLUMN     "userId" TEXT NOT NULL DEFAULT 'f29ca143-fdef-4d01-a31e-7b6b4d1c8b32';
+
+-- AlterTable
+ALTER TABLE "Test" ADD COLUMN     "userId" TEXT NOT NULL DEFAULT 'f29ca143-fdef-4d01-a31e-7b6b4d1c8b32';
+
+-- AddForeignKey
+ALTER TABLE "MoodNote" ADD CONSTRAINT "MoodNote_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Test" ADD CONSTRAINT "Test_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
