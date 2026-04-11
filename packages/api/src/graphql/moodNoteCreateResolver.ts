@@ -2,15 +2,17 @@ import { prisma } from '../prisma';
 import { MoodNote, MutationMoodNoteCreateArgs } from '../schema.types';
 import { v7 as uuid7 } from 'uuid';
 import { toMoodNoteSchema } from './mappers/moodNote';
+import { InvocationContext } from '../context';
+import { validateUserAcess } from '../helpers/auth';
 
 export async function moodNoteCreateResolver(
   _,
-  { input }: MutationMoodNoteCreateArgs
+  { input }: MutationMoodNoteCreateArgs,
+  context: InvocationContext
 ): Promise<MoodNote> {
   const { title, tags, intencity, emotion, description, activityId } = input;
 
-  // Will be pulled from the auth later
-  const placeholder = 'f29ca143-fdef-4d01-a31e-7b6b4d1c8b32';
+  const user = await validateUserAcess(context);
 
   const noteId = uuid7();
   const note = await prisma.moodNote.create({
@@ -21,7 +23,7 @@ export async function moodNoteCreateResolver(
       intencity,
       description,
       activityId,
-      userId: placeholder,
+      userId: user.id,
       tags: {
         createMany: {
           skipDuplicates: true,

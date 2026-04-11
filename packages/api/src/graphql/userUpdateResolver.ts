@@ -4,17 +4,22 @@ import { parse } from 'valibot';
 import { prisma } from '../prisma';
 import { Gender } from '../../generated/prisma';
 import { toUserSchema } from './mappers/user';
+import { validateUserAcess } from '../helpers/auth';
+import { InvocationContext } from '../context';
 
 export async function userUpdateResolver(
   _: any,
-  { input }: MutationUserUpdateArgs
+  { input }: MutationUserUpdateArgs,
+  context: InvocationContext
 ): Promise<User> {
   try {
+    const { id } = await validateUserAcess(context);
+
     const { name, email, gender, birthDate } = parse(validationSchema, input);
 
     const user = await prisma.user.update({
       where: {
-        id: input.id,
+        id,
       },
       data: {
         name,

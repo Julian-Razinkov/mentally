@@ -6,7 +6,7 @@ type Query {
 
   testOne(id: ID!): Test!
 
-  userOne(id: ID!): User!
+  userOne: User!
 }
 
 type Mutation {
@@ -14,9 +14,10 @@ type Mutation {
   moodNoteUpdate(input: MoodNoteUpdate!, id: ID!): MoodNote!
   moodNoteDelete(id: ID!): MoodNote!
 
-  userCreate(input: UserCreate!): User!
+  userCreate(input: UserCreate!): UserAuthenticate!
+  userAuthenticate(input: UserAuthenticateInput!): UserAuthenticate!
   userUpdate(input: UserUpdate!): User!
-  userDelete(id: ID!): User!
+  userDelete: User!
 
   testCreate(input: TestCreate!): Test!
 }
@@ -152,11 +153,21 @@ input UserCreate {
 }
 
 input UserUpdate {
-  id: ID!
   name: String
-  # Add email confirmation in the future before changing it
+  # TODO: Add email confirmation in the future before changing it
   email: String
+  # TODO: Check the old password before changing to a new one
   password: String
   gender: Gender
   birthDate: String
+}
+
+input UserAuthenticateInput {
+  email: String!
+  password: String!
+}
+
+type UserAuthenticate {
+  token: String!
+  user: User!
 }
