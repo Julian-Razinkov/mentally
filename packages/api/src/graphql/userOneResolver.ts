@@ -1,16 +1,14 @@
-import { prisma } from '../prisma';
-import { QueryUserOneArgs, User } from '../schema.types';
+import { InvocationContext } from '../context';
+import { validateUserAcess } from '../helpers/auth';
+import { User } from '../schema.types';
 import { toUserSchema } from './mappers/user';
 
 export async function userOneResolver(
   _: any,
-  { id }: QueryUserOneArgs
+  __: any,
+  context: InvocationContext
 ): Promise<User> {
-  const user = await prisma.user.findUniqueOrThrow({
-    where: {
-      id,
-    },
-  });
+  const user = await validateUserAcess(context);
 
   return toUserSchema(user);
 }

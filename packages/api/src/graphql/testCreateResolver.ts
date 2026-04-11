@@ -3,22 +3,26 @@ import { prisma } from '../prisma';
 import { MutationTestCreateArgs, Test, TestType } from '../schema.types';
 import { calculateTestScore } from './helpers';
 import { toTestSchema } from './mappers/test';
+import { InvocationContext } from '../context';
+import { validateUserAcess } from '../helpers/auth';
 
 export async function testCreateResolver(
   _: any,
-  { input }: MutationTestCreateArgs
+  { input }: MutationTestCreateArgs,
+  context: InvocationContext
 ): Promise<Test> {
-  const { type, userId, answers } = input;
+  const user = await validateUserAcess(context);
+
+  const { type, answers } = input;
   const id = uuid();
   const score = calculateTestScore(answers);
-  const placeholder = 'f29ca143-fdef-4d01-a31e-7b6b4d1c8b32';
 
   const test = await prisma.test.create({
     data: {
       id,
       score,
       type: type as TestType,
-      userId: placeholder,
+      userId: user.id,
       answers: {
         createMany: {
           data: answers.map(({ questionNumber, score }) => ({

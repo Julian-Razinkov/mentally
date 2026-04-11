@@ -23,3 +23,15 @@ export const userSchema = v.object({
 });
 
 export const updateUserSchema = v.partial(userSchema);
+
+export const userAuthSchema = v.object({
+  email: v.pipe(
+    v.string('Email must be a string'),
+    v.nonEmpty('Email is required'),
+    v.email('Invalid adress')
+  ),
+  password: v.pipe(
+    v.string('Password must be a string'),
+    v.nonEmpty('Password is required'),
+  ),
+});

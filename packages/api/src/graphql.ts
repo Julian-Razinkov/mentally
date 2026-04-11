@@ -5,6 +5,7 @@ import { moodNoteOneResolver } from './graphql/moodNoteOneResolver';
 import { moodNoteUpdateResolver } from './graphql/moodNoteUpdateResolver';
 import { testCreateResolver } from './graphql/testCreateResolver';
 import { testOneResolver } from './graphql/testOneResolver';
+import { userAuthenticateResolver } from './graphql/userAuthenticateResolver';
 import { userCreateResolver } from './graphql/userCreateResolver';
 import { userDeleteResolver } from './graphql/userDeleteResolver';
 import { userOneResolver } from './graphql/userOneResolver';
@@ -22,6 +23,7 @@ export const resolvers: Resolvers = {
     moodNoteCreate: moodNoteCreateResolver,
     moodNoteUpdate: moodNoteUpdateResolver,
     moodNoteDelete: moodNoteDeleteResolver,
+    userAuthenticate: userAuthenticateResolver,
     testCreate: testCreateResolver,
     userCreate: userCreateResolver,
     userUpdate: userUpdateResolver,
