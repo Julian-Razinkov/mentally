@@ -32,6 +32,6 @@ export const userAuthSchema = v.object({
   ),
   password: v.pipe(
     v.string('Password must be a string'),
-    v.nonEmpty('Password is required'),
+    v.nonEmpty('Password is required')
   ),
 });
