@@ -1,21 +1,24 @@
-import { useState } from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router"
+import { AppBar } from './components/Appbar/AppBar';
+
+const Hello = () => (
+  <div className='w-[90%] mx-auto'>
+    <AppBar />
+    <div className='flex bg-amber-500 w-full h-full'>Hello world</div>
+  </div>
+)
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div></div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          dont Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs"></p>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' Component={Hello} >
+          </Route>
+        </Routes>
+      </BrowserRouter >
     </>
   );
 }

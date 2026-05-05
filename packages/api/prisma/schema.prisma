@@ -17,6 +17,12 @@ model User {
   gender    Gender
   birthDate DateTime?
 
+  // Onboarding section 
+  timeCommitment Int
+  preferredTool  PreferredTool
+  issue          UserIssue
+  focus          UserFocus
+
   moodNotes MoodNote[]
   tests     Test[]
 }
@@ -25,6 +31,31 @@ enum Gender {
   male
   female
   unknown
+}
+
+enum UserIssue {
+  anxiety
+  depression
+  burnout
+  stress
+  lowMood
+  focus
+  other
+}
+
+enum UserFocus {
+  feelCalmer
+  improveFocus
+  buildHabits
+  understandMyself
+  sleepBetter
+}
+
+enum PreferredTool {
+  quickTool
+  deepExcercise
+  tracking
+  education
 }
 
 model MoodNote {
