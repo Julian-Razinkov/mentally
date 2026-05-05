@@ -1,5 +1,5 @@
-import { AppBarLink } from "./AppBarLink"
-import { House, BookHeart, Smile } from 'lucide-react'
+import { AppBarLink } from './AppBarLink';
+import { House, BookHeart, Smile } from 'lucide-react';
 
 //TODO: Change the tailwind theme to be according to figma
 
@@ -15,5 +15,5 @@ export const AppBar = () => {
         <div className="absolute translate-x-4.5 translate-y-2.5">U</div>
       </div>
     </div>
-  )
-}
+  );
+};
