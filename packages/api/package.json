@@ -1,5 +1,5 @@
 {
-  "name": "@mentally/api",
+  "name": "api",
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
@@ -13,12 +13,12 @@
     "@apollo/server": "^4.12.2",
     "@graphql-tools/graphql-file-loader": "^8.0.20",
     "@graphql-tools/load": "^8.1.0",
-    "@mentally/common": "1.0.0",
     "@prisma/client": "6.9.0",
     "@types/bcrypt": "^6.0.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^22.15.29",
     "bcrypt": "^6.0.0",
+    "common": "1.0.0",
     "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.3",
     "prisma": "^6.9.0",
