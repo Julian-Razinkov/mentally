@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Field, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
+import { WaitListForm } from './waitlistForm';
 
 export default function Waitlist() {
   // TODO: Adjust tailwind theme and add right colors and text sizes instead of using the raw values
@@ -35,19 +36,7 @@ export default function Waitlist() {
         <Image src="/thisone.png" alt="capybarra" width={320} height={320} />
       </div>
 
-      <div className="flex items-center justify-center flex-row gap-3 w-[30%]">
-        <Field>
-          <Input
-            placeholder="your@email.com"
-            required
-            className="border-[#D9D4CD] bg-[#EDE8DF]"
-          />
-        </Field>
-
-        <Button size="lg" className="bg-[#1F1B2E] text-[#C9B8F8] font-bold">
-          Join waitlist
-        </Button>
-      </div>
+      <WaitListForm />
     </div>
   );
 }
