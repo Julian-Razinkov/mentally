@@ -1,6 +1,15 @@
 const config = {
   plugins: {
-    '@tailwindcss/postcss': {},
+    '@tailwindcss/postcss': {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            'dm-serif-display': ['"DM Serif Display"', 'serif'],
+          },
+        },
+      },
+    },
   },
 };
 
