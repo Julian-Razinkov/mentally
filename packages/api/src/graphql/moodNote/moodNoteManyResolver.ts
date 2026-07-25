@@ -1,8 +1,8 @@
-import { InvocationContext } from '../context';
-import { validateUserAcess } from '../helpers/auth';
-import { prisma } from '../prisma';
-import { MoodNotePage, QueryMoodNoteManyArgs } from '../schema.types';
-import { toMoodNoteSchema } from './mappers/moodNote';
+import { InvocationContext } from '../../context';
+import { validateUserAcess } from '../../helpers/auth';
+import { prisma } from '../../prisma';
+import { MoodNotePage, QueryMoodNoteManyArgs } from '../../schema.types';
+import { toMoodNoteSchema } from '../mappers/moodNote';
 
 export async function moodNoteManyResolver(
   _: any,

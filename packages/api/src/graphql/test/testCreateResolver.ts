@@ -1,10 +1,10 @@
 import { v7 as uuid } from 'uuid';
-import { prisma } from '../prisma';
-import { MutationTestCreateArgs, Test, TestType } from '../schema.types';
-import { calculateTestScore } from './helpers';
-import { toTestSchema } from './mappers/test';
-import { InvocationContext } from '../context';
-import { validateUserAcess } from '../helpers/auth';
+import { prisma } from '../../prisma';
+import { MutationTestCreateArgs, Test, TestType } from '../../schema.types';
+import { calculateTestScore } from '../helpers';
+import { toTestSchema } from '../mappers/test';
+import { InvocationContext } from '../../context';
+import { validateUserAcess } from '../../helpers/auth';
 
 export async function testCreateResolver(
   _: any,

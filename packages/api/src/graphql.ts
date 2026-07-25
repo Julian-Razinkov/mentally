@@ -1,15 +1,16 @@
-import { moodNoteCreateResolver } from './graphql/moodNoteCreateResolver';
-import { moodNoteDeleteResolver } from './graphql/moodNoteDeleteResolver';
-import { moodNoteManyResolver } from './graphql/moodNoteManyResolver';
-import { moodNoteOneResolver } from './graphql/moodNoteOneResolver';
-import { moodNoteUpdateResolver } from './graphql/moodNoteUpdateResolver';
-import { testCreateResolver } from './graphql/testCreateResolver';
-import { testOneResolver } from './graphql/testOneResolver';
-import { userAuthenticateResolver } from './graphql/userAuthenticateResolver';
-import { userCreateResolver } from './graphql/userCreateResolver';
-import { userDeleteResolver } from './graphql/userDeleteResolver';
-import { userOneResolver } from './graphql/userOneResolver';
-import { userUpdateResolver } from './graphql/userUpdateResolver';
+import { moodNoteCreateResolver } from './graphql/moodNote/moodNoteCreateResolver';
+import { moodNoteDeleteResolver } from './graphql/moodNote/moodNoteDeleteResolver';
+import { moodNoteManyResolver } from './graphql/moodNote/moodNoteManyResolver';
+import { moodNoteOneResolver } from './graphql/moodNote/moodNoteOneResolver';
+import { moodNoteUpdateResolver } from './graphql/moodNote/moodNoteUpdateResolver';
+import { testCreateResolver } from './graphql/test/testCreateResolver';
+import { testOneResolver } from './graphql/test/testOneResolver';
+import { userAuthenticateResolver } from './graphql/user/userAuthenticateResolver';
+import { userCreateResolver } from './graphql/user/userCreateResolver';
+import { userDeleteResolver } from './graphql/user/userDeleteResolver';
+import { userOneResolver } from './graphql/user/userOneResolver';
+import { userUpdateResolver } from './graphql/user/userUpdateResolver';
+import { waitlistCreateResolver } from './graphql/waitlist/waitlistCreateResolver';
 import { Resolvers } from './schema.types';
 
 export const resolvers: Resolvers = {
@@ -28,5 +29,6 @@ export const resolvers: Resolvers = {
     userCreate: userCreateResolver,
     userUpdate: userUpdateResolver,
     userDelete: userDeleteResolver,
+    waitlistCreate: waitlistCreateResolver,
   },
 };

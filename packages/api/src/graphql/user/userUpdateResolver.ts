@@ -1,11 +1,11 @@
-import { MutationUserUpdateArgs, User } from '../schema.types';
-import { updateUserSchema as validationSchema } from '@mentally/common/validation/userSchema';
+import { MutationUserUpdateArgs, User } from '../../schema.types';
+import { updateUserSchema as validationSchema } from 'common/validation/userSchema';
 import { parse } from 'valibot';
-import { prisma } from '../prisma';
-import { Gender } from '../../generated/prisma';
-import { toUserSchema } from './mappers/user';
-import { validateUserAcess } from '../helpers/auth';
-import { InvocationContext } from '../context';
+import { prisma } from '../../prisma';
+import { Gender } from '../../../generated/prisma';
+import { toUserSchema } from '../mappers/user';
+import { validateUserAcess } from '../../helpers/auth';
+import { InvocationContext } from '../../context';
 
 export async function userUpdateResolver(
   _: any,

@@ -1,9 +1,9 @@
-import { prisma } from '../prisma';
-import { MoodNote, MutationMoodNoteCreateArgs } from '../schema.types';
+import { prisma } from '../../prisma';
+import { MoodNote, MutationMoodNoteCreateArgs } from '../../schema.types';
 import { v7 as uuid7 } from 'uuid';
-import { toMoodNoteSchema } from './mappers/moodNote';
-import { InvocationContext } from '../context';
-import { validateUserAcess } from '../helpers/auth';
+import { toMoodNoteSchema } from '../mappers/moodNote';
+import { InvocationContext } from '../../context';
+import { validateUserAcess } from '../../helpers/auth';
 
 export async function moodNoteCreateResolver(
   _,

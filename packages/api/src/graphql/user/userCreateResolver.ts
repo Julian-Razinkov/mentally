@@ -2,15 +2,15 @@ import {
   MutationUserCreateArgs,
   User,
   UserAuthenticate,
-} from '../schema.types';
-import { userSchema as validationSchema } from '@mentally/common/validation/userSchema';
+} from '../../schema.types';
+import { userSchema as validationSchema } from 'common/validation/userSchema';
 import { parse } from 'valibot';
-import { prisma } from '../prisma';
-import { hashPassword } from '../helpers/hash';
-import { Gender } from '../../generated/prisma';
+import { prisma } from '../../prisma';
+import { hashPassword } from '../../helpers/hash';
+import { Gender } from '../../../generated/prisma';
 import { v4 as uuid } from 'uuid';
-import { toUserSchema } from './mappers/user';
-import { signJWT } from '../helpers/auth';
+import { toUserSchema } from '../mappers/user';
+import { signJWT } from '../../helpers/auth';
 
 export async function userCreateResolver(
   _: any,
@@ -29,6 +29,11 @@ export async function userCreateResolver(
       data: {
         id: uuid(),
         name,
+        // TODO: include real fileds once onboarding is ready
+        focus: 'feelCalmer',
+        issue: 'focus',
+        preferredTool: 'quickTool',
+        timeCommitment: 10,
         email,
         gender: gender as Gender,
         birthDate,

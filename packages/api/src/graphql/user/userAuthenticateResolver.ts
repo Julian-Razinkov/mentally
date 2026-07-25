@@ -1,14 +1,14 @@
-import { userAuthSchema } from '@mentally/common/validation/userSchema';
+import { userAuthSchema } from 'common/validation/userSchema';
 import {
   MutationUserAuthenticateArgs,
   UserAuthenticate,
-} from '../schema.types';
+} from '../../schema.types';
 import { parse } from 'valibot';
-import { comparePassword, hashPassword } from '../helpers/hash';
-import { prisma } from '../prisma';
+import { comparePassword, hashPassword } from '../../helpers/hash';
+import { prisma } from '../../prisma';
 import { GraphQLError } from 'graphql';
-import { signJWT } from '../helpers/auth';
-import { toUserSchema } from './mappers/user';
+import { signJWT } from '../../helpers/auth';
+import { toUserSchema } from '../mappers/user';
 
 export async function userAuthenticateResolver(
   _: any,
