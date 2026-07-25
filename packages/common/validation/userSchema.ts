@@ -1,5 +1,5 @@
 import * as v from 'valibot';
-import { Gender } from '@mentally/api/src/schema.types';
+import { Gender } from 'api/src/schema.types';
 
 export const userSchema = v.object({
   name: v.pipe(

@@ -1,6 +1,7 @@
 **/node_modules
 **/.env
 **/*.d.ts
+*.yarn
 
 # Logs
 logs
@@ -23,3 +24,6 @@ dist-ssr
 *.sln
 *.sw?
 packages/api/src/schema.types.ts
+packages/frontend/lib/graphql/__generated__/gql.ts
+packages/frontend/lib/graphql/__generated__/graphql.ts
+packages/frontend/lib/graphql/__generated__/index.ts

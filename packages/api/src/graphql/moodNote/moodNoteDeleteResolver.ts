@@ -1,8 +1,8 @@
-import { InvocationContext } from '../context';
-import { prisma } from '../prisma';
-import { MoodNote, MutationMoodNoteDeleteArgs } from '../schema.types';
-import { toMoodNoteSchema } from './mappers/moodNote';
-import { validateUserAcess } from '../helpers/auth';
+import { InvocationContext } from '../../context';
+import { prisma } from '../../prisma';
+import { MoodNote, MutationMoodNoteDeleteArgs } from '../../schema.types';
+import { toMoodNoteSchema } from '../mappers/moodNote';
+import { validateUserAcess } from '../../helpers/auth';
 
 export async function moodNoteDeleteResolver(
   _: any,

@@ -1,49 +1,10 @@
-#TODO: Fix the compose, Im too stupid for it right now
 services:
-  api:
-    build:
-      context: .
-      dockerfile: ./packages/api/dockerfile
-    ports:
-      - 4000:4000
-    volumes:
-      - .:/app
-    command: yarn workspace @mentally/api dev
-    develop:
-      watch:
-        - action: sync
-          path: ./packages/api
-          target: /app
-          ignore:
-            - node_modules
-        - action: rebuild
-          path: package.json
-    depends_on:
-      - postgres
-  frontend:
-    build:
-      context: .
-      dockerfile: ./packages/frontend/dockerfile
-    ports:
-      - 5173:5173
-    volumes:
-      - .:/app
-    command: yarn workspace @mentally/frontend dev --host 0.0.0.0
-    develop:
-      watch:
-        - action: sync
-          path: ./packages/frontend
-          target: /app
-          ignore:
-            - node_modules
-        - action: rebuild
-          path: package.json
   postgres:
-    image: postgres
+    image: postgres:17-alpine
     restart: always
     shm_size: 128mb
     ports:
-      - 5433:5433
+      - 5433:5432
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}

@@ -1,7 +1,6 @@
 generator client {
-  provider      = "prisma-client-js"
-  output        = "../generated/prisma"
-  binaryTargets = "linux-musl-arm64-openssl-3.0.x"
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -25,6 +24,11 @@ model User {
 
   moodNotes MoodNote[]
   tests     Test[]
+}
+
+model Waitlist {
+  id    String @id
+  email String @unique
 }
 
 enum Gender {

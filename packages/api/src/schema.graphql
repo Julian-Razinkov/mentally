@@ -20,6 +20,8 @@ type Mutation {
   userDelete: User!
 
   testCreate(input: TestCreate!): Test!
+
+  waitlistCreate(email: String!): Boolean
 }
 
 # Mood Note section

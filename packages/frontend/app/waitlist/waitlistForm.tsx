@@ -7,7 +7,10 @@ import { valibotResolver } from '@hookform/resolvers/valibot';
 import { Field, FieldError } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { error } from 'node:console';
+import { useMutation } from '@apollo/client/react';
+import { AddWaitlistEmailDocument } from '@/lib/graphql/__generated__/graphql';
+import { Badge } from '@/components/ui/badge';
+import { CircleCheck } from 'lucide-react';
 
 export const WaitListForm = () => {
   const {
@@ -18,12 +21,15 @@ export const WaitListForm = () => {
     resolver: valibotResolver(WaitlistSchema, undefined, { raw: true }),
   });
 
+  const [addEmail, { loading, error, data }] = useMutation(
+    AddWaitlistEmailDocument
+  );
+
   const onSubmit = (data: v.InferOutput<typeof WaitlistSchema>) => {
-    //TODO: Replace with a real mutation once the gql point is ready
-    console.log(data.email);
+    addEmail({ variables: { email: data.email } });
   };
 
-  return (
+  return !data?.waitlistCreate && !error ? (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex items-start justify-center flex-row gap-3 w-[30%]"
@@ -33,18 +39,19 @@ export const WaitListForm = () => {
           {...register('email')}
           placeholder="your@email.com"
           required
-          className="border-[#D9D4CD] bg-[#EDE8DF]"
+          className="border-accent bg-muted"
         />
         {errors.email && <FieldError>{errors.email.message}</FieldError>}
       </Field>
 
-      <Button
-        size="lg"
-        className="bg-[#1F1B2E] text-[#C9B8F8] font-bold"
-        type="submit"
-      >
+      <Button size="lg" className="font-bold" type="submit">
         Join waitlist
       </Button>
     </form>
+  ) : (
+    <Badge variant="success" size="large" iconStart={<CircleCheck />}>
+      {' '}
+      You're on the list. Hold tight for updates!
+    </Badge>
   );
 };

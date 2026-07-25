@@ -1,8 +1,8 @@
-import { InvocationContext } from '../context';
-import { validateUserAcess } from '../helpers/auth';
-import { prisma } from '../prisma';
-import { QueryTestOneArgs, Test } from '../schema.types';
-import { toTestSchema } from './mappers/test';
+import { InvocationContext } from '../../context';
+import { validateUserAcess } from '../../helpers/auth';
+import { prisma } from '../../prisma';
+import { QueryTestOneArgs, Test } from '../../schema.types';
+import { toTestSchema } from '../mappers/test';
 
 export async function testOneResolver(
   _: any,
