@@ -1,19 +1,7 @@
-import {
-  Sidebar,
-  SidebarHeader,
-  SidebarProvider,
-} from '@/components/ui/sidebar';
-
 export default function Dashboard() {
   return (
     <div>
-      <SidebarProvider>
-        <Sidebar>
-          <SidebarHeader>
-            <h1>Dashboard</h1>
-          </SidebarHeader>
-        </Sidebar>
-      </SidebarProvider>
+      <h1 className="font-heading text-2xl font-bold">Dashboard</h1>
     </div>
   );
 }

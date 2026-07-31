@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ApolloWrapper } from './apollo-wrapper';
+import { AppSidebar } from './app-sidebar';
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,8 +30,15 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <ApolloWrapper>{children}</ApolloWrapper>
+      <body className="flex min-h-full flex-col">
+        <SidebarProvider>
+          <ApolloWrapper>
+            <div className="flex min-h-svh w-full">
+              <AppSidebar />
+              <main className="min-w-0 flex-1">{children}</main>
+            </div>
+          </ApolloWrapper>
+        </SidebarProvider>
       </body>
     </html>
   );
