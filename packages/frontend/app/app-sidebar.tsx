@@ -26,7 +26,7 @@ export function AppSidebar() {
     <Sidebar collapsible="icon" variant="floating">
       <SidebarHeader className="mt-5 px-8">
         <div>
-          <h1 className="font-heading font-bold">Mentally</h1>
+          <h1 className="font-heading text-3xl font-bold">Mentally</h1>
         </div>
       </SidebarHeader>
 
@@ -39,7 +39,7 @@ export function AppSidebar() {
               className="cursor-pointer"
             >
               <LayoutDashboard />
-              Dashboard
+              <li className="font-bold">Dashboard</li>
             </SidebarMenuButton>
           </Link>
 
@@ -50,7 +50,7 @@ export function AppSidebar() {
               className="cursor-pointer"
             >
               <SmilePlus />
-              Mood log
+              <li className="font-bold">Mood log</li>
             </SidebarMenuButton>
           </Link>
 
@@ -61,7 +61,7 @@ export function AppSidebar() {
               className="cursor-pointer"
             >
               <NotepadText />
-              Assesments
+              <li className="font-bold">Assesments</li>
             </SidebarMenuButton>
           </Link>
         </SidebarGroup>
@@ -75,11 +75,11 @@ export function AppSidebar() {
             className="cursor-pointer"
           >
             <Settings />
-            Settings
+            <li className="font-bold">Settings</li>
           </SidebarMenuButton>
         </Link>
 
-        <Card className="bg-body-foreground px-2">
+        <Card className="bg-sidebar-accent px-2">
           <div className="flex items-center gap-2">
             <Avatar size="lg">
               <AvatarFallback>UN</AvatarFallback>
