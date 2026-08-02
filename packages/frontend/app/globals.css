@@ -84,72 +84,114 @@
 :root {
   --font-size: 16px;
 
+  /* ── Page canvas ── */
   --background: #f2ede4;
   --foreground: #2a2030;
+
+  /* ── Card / panel surfaces ── */
   --card: #ede8df;
   --card-foreground: #2a2030;
   --popover: #ede8df;
   --popover-foreground: #2a2030;
-  --surface-raised: #e6e0d6;
+  --surface-raised: #e6e0d6; /* inputs, hover states, nested panels */
+
+  /* ── Primary (dark navy-purple) ── */
   --primary: #1e1b2e;
   --primary-foreground: #c8b8f8;
+
+  /* ── Secondary ── */
   --secondary: #ede8df;
   --secondary-foreground: #2a2030;
+
+  /* ── Muted ── */
   --muted: #e4ddd3;
   --muted-foreground: #8a7e6e;
+
+  /* ── Accent (lavender) ── */
   --accent: #c8b8f8;
   --accent-foreground: #1e1b2e;
+
+  /* ── Destructive ── */
   --destructive: #e87d7d;
   --destructive-foreground: #ffffff;
-  --body-foreground: #4a3b6b;
-  --subtle-foreground: #a09880;
-  --placeholder-foreground: #b0a898;
-  --hairline-foreground: #c0b8a8;
-  --positive: #3d7a40;
+
+  /* ── Text hierarchy ── */
+  --body-foreground: #4a3b6b; /* body copy on pale cards */
+  --subtle-foreground: #a09880; /* captions, timestamps */
+  --placeholder-foreground: #b0a898; /* input placeholders */
+  --hairline-foreground: #c0b8a8; /* dividers, chevrons */
+
+  /* ── Status ── */
+  --positive: #3d7a40; /* upward trends, good scores */
   --positive-foreground: #ffffff;
-  --negative: #c84820;
+  --negative: #c84820; /* downward trends, high risk */
   --negative-foreground: #ffffff;
-  --flame: #f5a060;
+  --flame: #f5a060; /* streak / activity flame */
+
+  /* ── Canvas cards — Yellow (mood) ── */
   --canvas-yellow: #f0d878;
   --canvas-yellow-foreground: #7a6820;
+
+  /* ── Canvas cards — Rose (PHQ-9 / anxiety) ── */
   --canvas-rose: #f5b8c4;
   --canvas-rose-foreground: #8a2840;
+
+  /* ── Canvas cards — Sage (emotions / positive) ── */
   --canvas-sage: #b8d4a0;
   --canvas-sage-foreground: #2a5020;
+
+  /* ── Canvas cards — Periwinkle (sessions / GAD-7) ── */
   --canvas-periwinkle: #c4c8e8;
   --canvas-periwinkle-foreground: #3a3880;
+
+  /* ── Canvas cards — Peach (habits / PSS) ── */
   --canvas-peach: #f5c8a0;
   --canvas-peach-foreground: #7a4020;
+
+  /* ── Canvas cards — Purple (accent variant) ── */
   --canvas-purple: #c8b8f8;
   --canvas-purple-foreground: #5a4880;
-  --overlay-dark: rgba(30, 27, 46, 0.55);
-  --overlay-lavender: rgba(200, 184, 248, 0.15);
+
+  /* ── Success ── */
+  --success: #b8d4a0;
+  --success-foreground: #2a5020;
+  --green-foreground: #2a5020;
+
+  /* ── Overlays ── */
+  --overlay-dark: rgba(30, 27, 46, 0.55); /* modal backdrops */
+  --overlay-lavender: rgba(200, 184, 248, 0.15); /* active nav bg */
   --overlay-lavender-strong: rgba(200, 184, 248, 0.3);
+
+  /* ── Borders / inputs / controls ── */
   --border: rgba(42, 32, 48, 0.08);
   --input: transparent;
   --input-background: #ede8df;
   --switch-background: #c0b8a8;
   --ring: #c8b8f8;
-  --success: #b8d4a0;
-  --success-foreground: #2a5020;
-  --green-foreground: #2a5020;
+
+  /* ── Sidebar ── */
+  --sidebar: #162418;
+  --sidebar-foreground: #e0f0e4;
+  --sidebar-primary: #a8d4a0;
+  --sidebar-primary-foreground: #162418;
+  --sidebar-accent: rgba(168, 212, 160, 0.14);
+  --sidebar-accent-foreground: #a8d4a0;
+  --sidebar-muted: #4a6a52; /* section labels */
+  --sidebar-inactive: #6a8870; /* inactive nav items */
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #a8d4a0;
+
+  /* ── Charts (aliases for the canvas palette) ── */
   --chart-1: #f0d878;
   --chart-2: #f5b8c4;
   --chart-3: #b8d4a0;
   --chart-4: #c4c8e8;
   --chart-5: #f5c8a0;
-  --radius: 1rem;
-  --sidebar: #1e1b2e;
-  --sidebar-foreground: #e8e0f8;
-  --sidebar-primary: #c8b8f8;
-  --sidebar-primary-foreground: #1e1b2e;
-  --sidebar-accent: rgba(200, 184, 248, 0.12);
-  --sidebar-accent-foreground: #c8b8f8;
-  --sidebar-muted: #4e4870;
-  --sidebar-inactive: #7a7098;
-  --sidebar-border: rgba(255, 255, 255, 0.07);
-  --sidebar-ring: #c8b8f8;
 
+  /* ── Radius ── */
+  --radius: 1rem;
+
+  /* ── Typography ── */
   --font-weight-medium: 500;
   --font-weight-normal: 400;
 }
@@ -193,6 +235,9 @@
   --canvas-peach-foreground: oklch(0.38 0.09 55);
   --canvas-purple: oklch(0.8 0.1 295);
   --canvas-purple-foreground: oklch(0.38 0.1 295);
+  --success: var(--canvas-sage);
+  --success-foreground: var(--canvas-sage-foreground);
+  --green-foreground: var(--canvas-sage-foreground);
   --overlay-dark: rgba(0, 0, 0, 0.65);
   --overlay-lavender: rgba(200, 184, 248, 0.1);
   --overlay-lavender-strong: rgba(200, 184, 248, 0.2);
@@ -201,9 +246,8 @@
   --input-background: oklch(0.2 0 0);
   --switch-background: oklch(0.35 0 0);
   --ring: oklch(0.439 0 0);
-  --success: var(--canvas-sage);
-  --success-foreground: var(--canvas-sage-foreground);
-  --green-foreground: var(--canvas-sage-foreground);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -219,52 +263,157 @@
   --sidebar-inactive: oklch(0.55 0.04 280);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+}
 
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
+@theme inline {
+  /* ── Fonts ── */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-dm-serif-display: 'DM Serif Display', serif;
+  --font-heading: var(--font-dm-serif-display);
+
+  /* ── Core surfaces ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-surface-raised: var(--surface-raised);
+
+  /* ── Brand ── */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* ── Muted ── */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* ── Destructive ── */
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* ── Text hierarchy ── */
+  --color-body-foreground: var(--body-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-placeholder-foreground: var(--placeholder-foreground);
+  --color-hairline-foreground: var(--hairline-foreground);
+
+  /* ── Status ── */
+  --color-positive: var(--positive);
+  --color-positive-foreground: var(--positive-foreground);
+  --color-negative: var(--negative);
+  --color-negative-foreground: var(--negative-foreground);
+  --color-flame: var(--flame);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-green-foreground: var(--green-foreground);
+
+  /* ── Canvas cards ── */
+  --color-canvas-yellow: var(--canvas-yellow);
+  --color-canvas-yellow-foreground: var(--canvas-yellow-foreground);
+  --color-canvas-rose: var(--canvas-rose);
+  --color-canvas-rose-foreground: var(--canvas-rose-foreground);
+  --color-canvas-sage: var(--canvas-sage);
+  --color-canvas-sage-foreground: var(--canvas-sage-foreground);
+  --color-canvas-periwinkle: var(--canvas-periwinkle);
+  --color-canvas-periwinkle-foreground: var(--canvas-periwinkle-foreground);
+  --color-canvas-peach: var(--canvas-peach);
+  --color-canvas-peach-foreground: var(--canvas-peach-foreground);
+  --color-canvas-purple: var(--canvas-purple);
+  --color-canvas-purple-foreground: var(--canvas-purple-foreground);
+
+  /* ── Overlays ── */
+  --color-overlay-dark: var(--overlay-dark);
+  --color-overlay-lavender: var(--overlay-lavender);
+  --color-overlay-lavender-strong: var(--overlay-lavender-strong);
+
+  /* ── Controls ── */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+
+  /* ── Charts ── */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* ── Sidebar ── */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-inactive: var(--sidebar-inactive);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Radius scale ── */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     font-size: var(--font-size);
     @apply font-sans;
   }
+
   h1 {
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
+
   h2 {
     font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
+
   h3 {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
+
   h4 {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
+
   label {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
+
   button {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
+
   input {
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
